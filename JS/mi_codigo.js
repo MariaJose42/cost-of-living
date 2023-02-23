@@ -14,20 +14,24 @@ function principal(){
      * */
 
     //Muestra por consola el total de ciudades que hay
-
+    console.log("Total:"+ ciudades.length);
 
     //Crea una lista con los nombres de las ciudades usando Map
-
+     let nombre_ciudades = ciudades.map(n=>n.nombre);
 
     //Muestra por consola el listado de los nombres de las ciudades que aparecen
             /** Ejemplo 
              *         nombres = ["A", "B", "C"];
              *         nombres.forEach(n => {console.log(n);});
              */
+            nombre_ciudades.forEach(c => console.log(c));
 
 
     // Crea una lista con las ciudades que son de España
     // Usa el método 'includes' de String (Ejemplo filter(x => x.nombre.includes("Italy")) )
+    ciudades_españa = ciudades.filter(c => c.nombre.includes("Spain"));
+
+    ciudades_españa.forEach(c=>console.log(c))
 
 
     // Calcula el precio medio de los tomates en Alemania "Germany" usa Map para crear una lista de precios de tipo Float
