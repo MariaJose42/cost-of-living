@@ -48,21 +48,21 @@ function principal(){
                             }
                         });
                 */
-               
-        ciudades_Alemania= ciudades.filter(a=>a.nombre.includes("Germany"));
+
+        ciudades_Alemania= ciudades.filter(c=>c.nombre.includes("Germany"));
         //ciudades_Alemania.forEach(a=>console.log(a))
-        lst_precios =ciudades_Alemania.map(a=>parseFloat(a.precio_tomate));
+        lst_precios =ciudades_Alemania.map(c=>parseFloat(c.precio_tomate));
         //lst_precios.forEach(a=>console.log(a)) ;
         
-        salario_medio_pais = lst_precios.reduce((total, x, index, array) => {
-            total += x;
+        precio_medio_tomate = lst_precios.reduce((acumulador, x, index, array) => {
+            acumulador += x;
             if( index === array.length-1) { 
-            return total/array.length;
+            return acumulador/array.length;
             }else { 
-            return total;
+            return acumulador;
             }})
 
-        console.log("El salario medio de los tomates en Alemania es:"+ salario_medio_pais)
+        console.log("El precio medio de los tomates en Alemania es:"+ precio_medio_tomate)
 
     
 
@@ -73,7 +73,13 @@ function principal(){
                    */
     //Muestra las ciudades usando la consola.
 
-    
+        ord_precio_gym = ciudades.sort((c1,c2) => parseFloat(c2.salario_medio) - parseFloat(c1.salario_medio));
+        //console.log(ord_precio_gym)
+
+        ciudades = ord_precio_gym.map(c=>c.nombre);
+        precio= ord_precio_gym.map(c=>c.precio_gym);
+
+        ciudades.forEach(c=>console.log("Ciudad:"+c));
     
 
 }
