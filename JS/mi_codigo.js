@@ -31,7 +31,7 @@ function principal(){
     // Usa el método 'includes' de String (Ejemplo filter(x => x.nombre.includes("Italy")) )
     ciudades_españa = ciudades.filter(c => c.nombre.includes("Spain"));
 
-    ciudades_españa.forEach(c=>console.log(c))
+    ciudades_españa.forEach(c=>console.log(c));
 
 
     // Calcula el precio medio de los tomates en Alemania "Germany" usa Map para crear una lista de precios de tipo Float
@@ -48,7 +48,21 @@ function principal(){
                             }
                         });
                 */
+               
+        ciudades_Alemania= ciudades.filter(a=>a.nombre.includes("Germany"));
+        //ciudades_Alemania.forEach(a=>console.log(a))
+        lst_precios =ciudades_Alemania.map(a=>parseFloat(a.precio_tomate));
+        //lst_precios.forEach(a=>console.log(a)) ;
+        
+        salario_medio_pais = lst_precios.reduce((total, x, index, array) => {
+            total += x;
+            if( index === array.length-1) { 
+            return total/array.length;
+            }else { 
+            return total;
+            }})
 
+        console.log("El salario medio de los tomates en Alemania es:"+ salario_medio_pais)
 
     
 
